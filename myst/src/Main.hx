@@ -9,6 +9,9 @@ class Main extends Engine
 #if debug
 		HXP.console.enable();
 #end
+		
+		HXP.screen.color = 0x353d41;
+		
 		HXP.scene = new MainScene();
 	}
 

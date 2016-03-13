@@ -1,5 +1,8 @@
+import com.haxepunk.debug.Console.TraceCapture;
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
+import com.haxepunk.utils.Input;
+import com.haxepunk.utils.Key;
 
 class Main extends Engine
 {
@@ -7,14 +10,27 @@ class Main extends Engine
 	override public function init()
 	{
 #if debug
-		//HXP.console.enable();
+		HXP.console.enable(TraceCapture.Yes, Key.F1);
 #end
 		
 		HXP.screen.color = 0x353d41;
 		
 		HXP.screen.smoothing = false;
 		
-		HXP.scene = new TitleScene();
+		HXP.stage.quality = LOW;
+		
+		HXP.screen.scale = 2;
+		
+		HXP.scene = new MainScene();
+	}
+	
+	override public function update():Void
+	{
+		
+		if (Input.pressed(Key.F5)) init();
+		
+		super.update();
+		
 	}
 
 	public static function main() { new Main(); }

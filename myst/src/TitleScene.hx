@@ -12,9 +12,9 @@ import openfl.ui.Mouse;
 class TitleScene extends Scene
 {
 	
-	private var title:Spritemap = new Spritemap("graphics/title.png", 75, 120);
+	private var title:Spritemap = new Spritemap("gfx/title.png", 75, 120);
 	
-	private var title_click:Image = new Image("graphics/title_click.png");
+	private var title_click:Image = new Image("gfx/title_click.png");
 	
 	private var text:Text = new Text("", -1, -1, 801, 601);
 	
@@ -36,7 +36,7 @@ class TitleScene extends Scene
 		
 		
 		text.color = 0xd5d8da;
-		text.font = "font/Perfect DOS VGA 437 Win.ttf";
+		text.font = "fnt/Perfect DOS VGA 437 Win.ttf";
 		text.size = 16;
 		text.smooth = false;
 		text.wordWrap = true;

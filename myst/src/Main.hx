@@ -19,7 +19,11 @@ class Main extends Engine
 		
 		HXP.stage.quality = LOW;
 		
+<<<<<<< HEAD
 		HXP.screen.scale = 1;
+=======
+		HXP.screen.scale = 2;
+>>>>>>> 0aaf18acdff926b77c297388f52bb63c0b0cb936
 		
 		HXP.scene = new MainScene();
 	}

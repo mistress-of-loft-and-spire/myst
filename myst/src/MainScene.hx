@@ -15,7 +15,6 @@ class MainScene extends Scene
 	override public function begin()
 	{
 		
-<<<<<<< HEAD
 		HXP.screen.color = 0xc0d0de;
 		
 		
@@ -40,12 +39,6 @@ class MainScene extends Scene
 			add(new Tree(Math.random() * 1000, 0, Math.random() * 1000));
 		}
 		*/
-=======
-		HXP.screen.color = 0x938d81;
-		
-		add(new Char(200, 200));
-		
->>>>>>> 0aaf18acdff926b77c297388f52bb63c0b0cb936
 	}
 
 }

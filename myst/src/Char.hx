@@ -1,5 +1,9 @@
 package;
 
+import com.haxepunk.HXP;
+import com.haxepunk.graphics.Image;
+import com.haxepunk.graphics.Spritemap;
+import com.haxepunk.graphics.Text;
 import com.haxepunk.graphics.atlas.AtlasData;
 import openfl.display.BlendMode;
 import persp.Camera3D;
@@ -75,7 +79,7 @@ class Char extends Entity3D
 	
 	override public function update():Void
 	{
-		
+		/*
 		if (Input.pressed(Key.DIGIT_1)) ad.blend = AtlasData.BLEND_NORMAL;
 		if (Input.pressed(Key.DIGIT_2)) ad.blend = AtlasData.BLEND_ADD;
 		if (Input.pressed(Key.DIGIT_3)) ad.blend = AtlasData.BLEND_INVERT;
@@ -87,7 +91,7 @@ class Char extends Entity3D
 		if (Input.pressed(Key.DIGIT_9)) ad.blend = AtlasData.BLEND_SUBTRACT;
 		if (Input.pressed(Key.DIGIT_0)) ad.blend = AtlasData.BLEND_DIFFERENCE;
 		
-		
+		*/
 		
 		
 		//sprite.blend = BlendMode.SCREEN;

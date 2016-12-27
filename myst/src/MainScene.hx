@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import com.haxepunk.graphics.Image;
-=======
->>>>>>> 0aaf18acdff926b77c297388f52bb63c0b0cb936
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import persp.Camera3D;

@@ -3,6 +3,7 @@ import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
+import openfl.Lib;
 
 class Main extends Engine
 {
@@ -28,6 +29,13 @@ class Main extends Engine
 	{
 		
 		if (Input.pressed(Key.F5)) init();
+		
+		if (Input.pressed(Key.ESCAPE))
+		{
+#if (!flash && !html5)
+			Lib.exit();
+#end
+		}
 		
 		super.update();
 		

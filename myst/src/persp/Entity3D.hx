@@ -26,13 +26,16 @@ class Entity3D extends Entity
 	
 	private var gfxScale:Float = 1;
 	
+	private var addLayer:Int;
 	
 	private var isoFactor:Float = 0;
 
-	public function new(x:Float=0, y:Float=0, z:Float=0) 
+	public function new(x:Float=0, y:Float=0, z:Float=0, addToLayer:Int=0) 
 	{
 		
 		super(x, y);
+		
+		addLayer = addToLayer;
 		
 		p.setTo(x, y, z);		
 		
@@ -44,7 +47,7 @@ class Entity3D extends Entity
 		//deptFactor calc -> dertermines how small + close to the horizon an object gets in the distance
 		depthFactor = Camera3D.nearClipZ / (Camera3D.nearClipZ + (p.z - Camera3D.camera.z));
 		
-		
+#if debug
 		//smoothing when switch to isometric or perspective render
 		if (Camera3D.isometric)
 		{
@@ -55,16 +58,18 @@ class Entity3D extends Entity
 			if(isoFactor > 0) isoFactor -= 0.01;
 		}
 		if (Camera3D.isometric || isoFactor > 0) { depthFactor = HXP.lerp(depthFactor,1,isoFactor); }
-		
+#end
 		
 		depthInverse = 1.0 - depthFactor; 
 		
 		//pos
 		y = ((p.y - Camera3D.camera.y) * depthFactor) + (Camera3D.horizon_y * depthInverse);
 		x = ((p.x - Camera3D.camera.x) * depthFactor) + (Camera3D.horizon_x * depthInverse);
-		
+
+#if debug
 		//isometric pos (no horizon / infinite horizon?)
 		if (Camera3D.isometric || isoFactor > 0) { y -= HXP.lerp(0, p.z - Camera3D.camera.z, isoFactor); }
+#end
 		
 		//scale
 		gfxScale = depthFactor;
@@ -75,17 +80,15 @@ class Entity3D extends Entity
 	{
 		
 		//set layer based on z distance
-		layer = Math.round(p.z);
+		layer = Math.round(p.z) + addLayer;
 		
 		//near clipping z -> hide entity when behind camera view
 		if ((p.z - Camera3D.camera.z) < -Camera3D.nearClipZ)
 		{ visible = false; }
-		else if ((p.z - Camera3D.camera.z) < -Camera3D.nearClipZ-20)
+		else if ((p.z - Camera3D.camera.z) < -Camera3D.nearClipZ-20) //if really close to clip distance -> don't show, but still calculate to avoid render glitches when it shows up
 		{ visible = false; render3D(); }
 		else
 		{ visible = true; }
-		
-		super.update();
 		
 	}
 	

@@ -1,4 +1,7 @@
 myst/bin
+
+insp/devlog
+
 *.swf
 *.html
 

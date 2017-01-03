@@ -38,7 +38,7 @@ class Char extends Entity3D
 	private var walker:Int = 2;
 	private var walk_timer:Float = 0;
 	
-	private var modylu:Float = 0;
+	private var modylu:Float = 1;
 	
 	private var ad = AtlasData.getAtlasDataByName("gfx/char.png");
 	
@@ -99,16 +99,16 @@ class Char extends Entity3D
 		else { modylu = 1; }
 		
 		//going left and right -- X
-		if (Input.check(Key.A))  { p.x -= 4 * modylu;} //CHANGE THIS TO KONSTANTE
-		if (Input.check(Key.D)) { p.x += 4 * modylu; }
+		if (Input.check(Key.A))  { p.x -= 1 * modylu;} //CHANGE THIS TO KONSTANTE
+		if (Input.check(Key.D)) { p.x += 1 * modylu; }
 		
 		//going towards horizon -- Z
-		if (Input.check(Key.W))    { p.z += 4 * modylu; }
-		if (Input.check(Key.S))  { p.z -= 4 * modylu; }
+		if (Input.check(Key.W))    { p.z += 1 * modylu; }
+		if (Input.check(Key.S))  { p.z -= 1 * modylu; }
 		
 		//jumping up and down -- Y
-		if (Input.check(Key.E))    { p.y -= 4 * modylu; }
-		if (Input.check(Key.Q))  { p.y += 4 * modylu; }
+		if (Input.check(Key.E))    { p.y -= 1 * modylu; }
+		if (Input.check(Key.Q))  { p.y += 1 * modylu; }
 		
 		Camera3D.camera.setTo(HXP.lerp(Camera3D.camera.x, p.x + Camera3D.offset.x, 0.05),
 		HXP.lerp(Camera3D.camera.y, p.y + Camera3D.offset.y, 0.05),

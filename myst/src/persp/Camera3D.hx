@@ -29,7 +29,7 @@ class Camera3D extends Entity
 	public static var nearClipZ:Float = 500; //distance to the near clipping plane -- trial and error?
 	public static var farClipZ:Float = 50000; //distance to the far clipping plane (everything beyond this will be faded away)
 	
-	public function new() 
+	public function new(x:Float=0, y:Float=0, z:Float=0) 
 	{
 		
 		super(0, 0);
@@ -37,7 +37,7 @@ class Camera3D extends Entity
 		horizon_x = HXP.halfWidth;
 		horizon_y = HXP.halfHeight;
 		
-		offset.setTo( -HXP.halfWidth, -HXP.halfHeight, 0);
+		offset.setTo( -HXP.halfWidth + x, -HXP.halfHeight + y, z);
 		
 	}
 	

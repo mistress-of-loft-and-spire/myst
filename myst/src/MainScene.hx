@@ -22,7 +22,7 @@ class MainScene extends Scene
 		
 		//add(new Wind());
 		
-		for (i in 0...1500)
+		for (i in 0...500)
 		{
 			add(new Island(0, 0, 0, i));
 		}

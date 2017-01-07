@@ -34,6 +34,8 @@ class Island extends Entity3D
 		
 		super(x, y, z);
 		
+		//sprite.angle = frameLayer;
+		
 		addGraphic(sprite);
 		
 		sprite.frame = frameLayer;

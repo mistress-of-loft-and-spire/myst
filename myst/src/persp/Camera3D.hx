@@ -27,7 +27,7 @@ class Camera3D extends Entity
 	public static var isometric:Bool = false;
 	
 	public static var nearClipZ:Float = 500; //distance to the near clipping plane -- trial and error?
-	public static var farClipZ:Float = 50000; //distance to the far clipping plane (everything beyond this will be faded away)
+	public static var farClipZ:Float = 5000; //distance to the far clipping plane (everything beyond this will be faded away)
 	
 	public function new(x:Float=0, y:Float=0, z:Float=0) 
 	{

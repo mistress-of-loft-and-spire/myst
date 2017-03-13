@@ -82,13 +82,29 @@ class Entity3D extends Entity
 		//set layer based on z distance
 		layer = Math.round(p.z) + addLayer;
 		
-		//near clipping z -> hide entity when behind camera view
+		visible = true;
+		
 		if ((p.z - Camera3D.camera.z) < -Camera3D.nearClipZ)
-		{ visible = false; }
-		else if ((p.z - Camera3D.camera.z) < -Camera3D.nearClipZ-20) //if really close to clip distance -> don't show, but still calculate to avoid render glitches when it shows up
-		{ visible = false; render3D(); }
-		else
-		{ visible = true; }
+		{
+			//near clipping z -> hide entity when behind camera view
+			visible = false;
+		}
+		else if ((p.z - Camera3D.camera.z) < -Camera3D.nearClipZ-20)
+		{
+			//if really close to clip distance -> don't show, but still calculate to avoid render glitches when it shows up
+			visible = false; render3D();
+		}
+		else if ((p.z - Camera3D.camera.z) > -220)
+		{
+			if (layer % 2 == 0)
+			{
+				visible = false;
+				if ((p.z - Camera3D.camera.z) < -200)
+				{
+					render3D();
+				}
+			}
+		}
 		
 	}
 	

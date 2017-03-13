@@ -7,6 +7,7 @@ import com.haxepunk.HXP;
 import com.haxepunk.Mask;
 import openfl.display.BitmapData;
 import persp.Camera3D;
+import world.sky.Sun;
 
 /**
  * ...
@@ -23,8 +24,10 @@ class Horizon extends Entity
 		
 		super();
 		
-		groundBitmap = new BitmapData(HXP.width, HXP.height, false, 0xFF96a9b9);
+		groundBitmap = new BitmapData(HXP.width, HXP.height, false, 0xFFFFFFFF);
 		ground = new Image(groundBitmap);
+		
+		//ground.alpha = 0.3;
 		
 		addGraphic(ground);
 		
@@ -36,6 +39,8 @@ class Horizon extends Entity
 	{
 		
 		ground.y = Camera3D.horizon_y;
+		
+		ground.color = Sun.colorwater;
 		
 		super.update();
 		
